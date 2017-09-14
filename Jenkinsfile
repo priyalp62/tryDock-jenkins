@@ -1,6 +1,13 @@
 //Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent { docker 'python:3.5.1' }
+    agent { 
+	dockerfile {
+		dir '/var/lib/jenkins/workspace/tryDock'
+		//additionalBuildArgs '--build-arg foo=bar'
+	} 
+    }
+
+
     stages {
         stage('build') {
             steps {
@@ -26,13 +33,6 @@ pipeline {
         always {
 		echo "ENV : ${env}"
 		echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-        }
-        failure {
-            //mail to: sunny.k@shieldsquare.com, subject: 'The Pipeline failed :('
-          	step([$class: 'Mailer',
-            	notifyEveryUnstableBuild: true,
-            	recipients: "sunny.k@shieldsquare.com",
-            	sendToIndividuals: true])
         }
     }
 }

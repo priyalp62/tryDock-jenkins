@@ -30,10 +30,4 @@ pipeline {
         }
     }
 
-    post {
-        always {
-		echo "ENV : ${env}"
-		echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-        }
-    }
 }

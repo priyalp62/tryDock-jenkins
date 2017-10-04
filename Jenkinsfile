@@ -1,4 +1,5 @@
 //Jenkinsfile (Declarative Pipeline)
+// Use scripted Jenkins pipeline 
 pipeline {
     agent { 
 	dockerfile {

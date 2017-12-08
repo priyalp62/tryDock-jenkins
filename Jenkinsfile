@@ -3,7 +3,7 @@
 pipeline {
     agent { 
 		dockerfile {
-			dir '/var/lib/jenkins/workspace/tryDock'
+			dir '/var/lib/jenkins/workspace/tryDock-jenkins'
 			//additionalBuildArgs '--build-arg foo=bar'
 		} 
     }

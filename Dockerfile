@@ -20,4 +20,3 @@ ENV NAME Container-Dock
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]
-

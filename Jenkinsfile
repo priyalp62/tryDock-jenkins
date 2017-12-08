@@ -2,12 +2,11 @@
 // Use scripted Jenkins pipeline 
 pipeline {
     agent { 
-	dockerfile {
-		dir '/var/lib/jenkins/workspace/tryDock'
-		//additionalBuildArgs '--build-arg foo=bar'
-	} 
+		dockerfile {
+			dir '/var/lib/jenkins/workspace/tryDock'
+			//additionalBuildArgs '--build-arg foo=bar'
+		} 
     }
-
 
     stages {
         stage('build') {
@@ -21,13 +20,12 @@ pipeline {
             when {
               expression {
                 currentBuild.result == null || currentBuild.result == 'SUCCESS' 
-              }
+				}
             }
             steps {
                 //sh 'make publish'
-		echo "RESULT: ${currentBuild.result}"
-            }
+				echo "RESULT: ${currentBuild.result}"
+            }	
         }
     }
-
 }
